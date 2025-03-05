@@ -18,6 +18,7 @@ import { withInputValidation } from "./middleware/with-input-validation.js"
 import { withUnhandledExceptionHandling } from "./middleware/with-unhandled-exception-handling.js"
 import { ResponseValidationError } from "./middleware/http-exceptions.js"
 
+console.log('test log')
 const attachMetadataToRouteFn = <
   const GS extends GlobalSpec,
   const RS extends RouteSpec<InferRecordKey<GS["authMiddleware"]>>,
