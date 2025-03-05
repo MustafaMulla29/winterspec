@@ -197,6 +197,10 @@ function serializeToResponse(
     throw new Error("Unknown Response type")
   }
 
+  if (typeof response === "object" && response !== null && !("serializeToResponse" in response)) {
+    throw new Error("Invalid response: Return ctx.json({...}) instead of {...}")
+  }
+
   return response
 }
 
