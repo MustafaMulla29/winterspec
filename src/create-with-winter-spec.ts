@@ -17,6 +17,7 @@ import { withMethods } from "./middleware/with-methods.js"
 import { withInputValidation } from "./middleware/with-input-validation.js"
 import { withUnhandledExceptionHandling } from "./middleware/with-unhandled-exception-handling.js"
 import { ResponseValidationError } from "./middleware/http-exceptions.js"
+import { withReturnTypeCheck } from "./middleware/with-return-type-check.js"
 
 const attachMetadataToRouteFn = <
   const GS extends GlobalSpec,
@@ -74,6 +75,7 @@ export const createWithWinterSpec = <const GS extends GlobalSpec>(
             // this is needed, for instance, when an error middleware returns an
             // error response that does not match the routeSpec's response shape
             serializeResponse(globalSpec, routeSpec, false),
+            withReturnTypeCheck,
             ...(globalSpec.beforeAuthMiddleware ?? []),
             firstAuthMiddlewareThatSucceeds(
               authMiddlewares,
