@@ -23,8 +23,8 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Install winterspec locally
-        run: bun link
+      - name: Install winterspec CLI
+        run: bun add winterspec
 
       - name: Run linter
         run: bun lint
