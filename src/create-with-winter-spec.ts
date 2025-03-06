@@ -74,8 +74,8 @@ export const createWithWinterSpec = <const GS extends GlobalSpec>(
             //
             // this is needed, for instance, when an error middleware returns an
             // error response that does not match the routeSpec's response shape
-            serializeResponse(globalSpec, routeSpec, false),
             withReturnTypeCheck,
+            serializeResponse(globalSpec, routeSpec, false),
             ...(globalSpec.beforeAuthMiddleware ?? []),
             firstAuthMiddlewareThatSucceeds(
               authMiddlewares,
