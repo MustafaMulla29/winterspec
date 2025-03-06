@@ -11,6 +11,7 @@ export const withJsonErrorHandler: Middleware<{}, {}> = async (
   } catch (error: any) {
     console.error(kleur.red("Intercepted error:"), error)
     // If error is a Response, return it
+    ctx.status = 400
     if (error instanceof Response) {
       return error
     }
